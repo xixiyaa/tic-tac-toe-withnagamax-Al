@@ -20,15 +20,14 @@ The game is interactive, detects wins and draws, includes a reset feature, and c
 
 The project fulfills all rubric requirements:
 
-| Criteria                           | Description                               | Status |
-| ---------------------------------- | ----------------------------------------- | ------ |
-| Program builds successfully        | Compiles on Windows 10 using CMake & MSVC | ✅      |
-| Game works: turn-by-turn play      | Alternating turns between X and O         | ✅      |
-| Detects all win/draw conditions    | Checks all 8 lines, full board = draw     | ✅      |
-| Allows reset & cleans memory       | Reset button + no heap allocation         | ✅      |
-| Code readability                   | Clear naming, modular structure           | ✅      |
-| Comments describing implementation | Detailed header & inline comments         | ✅      |
-| Extra Credit                       | Includes functional AI                    | ✅      |
+| Criteria                             | Description                           | Status |
+| ------------------------------------ | ------------------------------------- | ------ |
+| README                               | Explains build and AI design          | ✅      |
+| Algorithm is coded in Negamax format | Recursive negamax with signed scoring | ✅      |
+| AI plays as second player            | AI = O, human = X                     | ✅      |
+| AI plays better than random          | Negamax ensures optimal play          | ✅      |
+| Code style                           | Clean structure and comments          | ✅      |
+
 
 
 ---
