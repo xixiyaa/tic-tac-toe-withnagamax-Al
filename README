@@ -28,7 +28,17 @@ The project fulfills all rubric requirements:
 | AI plays better than random          | Negamax ensures optimal play          | ✅      |
 | Code style                           | Clean structure and comments          | ✅      |
 
+AND:
+From last assignment:
 
+| Criteria | Description | Status |
+|-----------|--------------|---------|
+| Program builds successfully | CMake + Visual Studio build confirmed | ✅ |
+| Game allows turn-by-turn play | X and O alternate properly | ✅ |
+| Detects all win/draw conditions | Checks rows, columns, and diagonals | ✅ |
+| Allows reset (cleans memory) | Reset button clears all state | ✅ |
+| Code readability and comments | Fully documented with header comments | ✅ |
+| Extra Credit | Simple AI opponent implemented | ✅ |
 
 ---
 
