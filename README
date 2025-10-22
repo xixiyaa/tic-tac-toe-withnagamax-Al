@@ -1,0 +1,80 @@
+# Tic Tac Toe (Dear ImGui) — Negamax AI
+## Author
+**[Xifan Luo]**  
+CMPM 123 Assignment 2
+Platform: **Windows 10**  
+IDE: **Visual Studio 2022**  
+Build System: **CMake**
+
+---
+
+## 🧩 Overview
+
+This project implements a complete **Tic Tac Toe** game rendered with **Dear ImGui**.  
+It supports two play modes:
+
+- **Two-Player Local Mode** (Player 1 = X, Player 2 = O)  
+- **Single-Player vs AI Mode** using the **Negamax algorithm** (Player 1 = X, AI = O)
+
+The game is interactive, detects wins and draws, includes a reset feature, and cleans up all resources safely.
+
+The project fulfills all rubric requirements:
+
+| Criteria                           | Description                               | Status |
+| ---------------------------------- | ----------------------------------------- | ------ |
+| Program builds successfully        | Compiles on Windows 10 using CMake & MSVC | ✅      |
+| Game works: turn-by-turn play      | Alternating turns between X and O         | ✅      |
+| Detects all win/draw conditions    | Checks all 8 lines, full board = draw     | ✅      |
+| Allows reset & cleans memory       | Reset button + no heap allocation         | ✅      |
+| Code readability                   | Clear naming, modular structure           | ✅      |
+| Comments describing implementation | Detailed header & inline comments         | ✅      |
+| Extra Credit                       | Includes functional AI                    | ✅      |
+
+
+---
+
+## 🧠 Implementation Summary
+
+All gameplay logic resides in Application.cpp.
+
+Core Systems
+    Board State: Stored in std::array<int,9> (0 = empty, 1 = X, 2 = O)
+    Turn Logic: Player 1 (X) always starts; turns alternate
+    Win/Draw Check: Evaluates 8 possible winning lines after every move
+    Reset: Clears the board and resets game state
+    Cleanup: StopGame() calls ResetGame() — no dynamic allocations used
+    Negamax AI (Player 2 / O)
+  Implements the Negamax formulation of the Minimax algorithm:
+      score(state, side) = max( -score(next_state, -side) )
+Terminal evaluation:
+    +1 → current side wins
+    0 → draw
+    -1 → current side loses
+Side mapping:
+    1 = X to move
+    -1 = O to move
+Move ordering: Center → corners → edges for faster convergence
+The AI plays second (O) and responds immediately after Player 1’s turn.
+---
+
+## ⚙️ Build Instructions
+
+### 🪟 Platform
+- **Operating System:** Windows 10
+- **CMake Version:** 3.10 or higher
+- **Compiler:** MSVC (Visual Studio 17 2022)
+
+### 🧱 Step-by-Step Build Commands
+
+In **PowerShell or CMD**, run the following from your project root folder:
+
+```bash
+# Step 1: Generate Visual Studio project files
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+
+# Step 2: Build in Release mode
+cmake --build build --config Release
+
+✅ After building, your executable will be located at:
+
+build/Release/demo.exe
